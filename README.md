@@ -92,3 +92,11 @@ comparing against to make the patch; in this case I have created a git tagthat r
 unmodified files called `h4.unmodified`, so you should run:
 
 $ git format-patch hw4.unmodified 0001-Implement-lottery-scheduling.patch
+
+The command creates a file, 0001-Implement-lottery-scheduling.patch,containing the changes you’ve made.
+Don’t try to edit the patch file after creating it. Doing so will most likely corrupt the patch file and
+make it impossible to apply. Instead, change the original file, commit your changes, and run git format-patch again:
+
+$ git commit --all --message="Description of your change here" 
+[hw4 7cc4977] Description of your change here 1 file changed, 1 insertion(+), 1 deletion(-)
+$ git format-patch hw4.unmodified 0001-Implement-lottery- scheduling.patch 0002-Description-of-your-change-here.patch
